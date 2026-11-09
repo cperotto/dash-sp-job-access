@@ -1,6 +1,6 @@
 # dash-sp-job-access
 
-> **live project:** [https://cperotto.github.io/dash-sp-job-access/](https://cperotto.github.io/dash-sp-job-access/)
+> **live project:** [https://cperotto.github.io/dash-sp-job-access/#/dashboard](https://cperotto.github.io/dash-sp-job-access/#/dashboard)
 
 job accessibility in são paulo, 2013 → 2022 — data story + spatial dashboard  
 vue + vite + tailwind, deck.gl over maplibre, duckdb-wasm over parquet, hostable on github pages
