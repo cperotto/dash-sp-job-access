@@ -1,0 +1,133 @@
+{
+  "site": {
+    "author": "camilla perotto",
+    "title": "os movimentos da acessibilidade: interações entre regulação, uso do solo e mobilidade em são paulo entre 2013 e 2022",
+    "meta": "2025 · insper · dissertação de mestrado",
+    "fullText": "texto completo (pt)"
+  },
+  "nav": {
+    "story": "[ / data story ]",
+    "dashboard": "[ / dashboard ]"
+  },
+  "story": {
+    "caption": "2013 → 2022",
+    "placeholder": "[texto a redigir]",
+    "sections": {
+      "context": "/ contexto",
+      "results": "/ resultados",
+      "discussion": "/ discussão"
+    },
+    "figures": {
+      "delta": "fig. 1 — variação % da acessibilidade por hexágono, 2013 → 2022"
+    }
+  },
+  "dashboard": {
+    "fullStory": "[ / data story completa ]"
+  },
+  "embed": {
+    "openDashboard": "abrir dashboard completo"
+  },
+  "map": {
+    "layer": "// camadas",
+    "info": "// hexágono",
+    "close": "fechar",
+    "loading": "carregando dados…",
+    "error": "não foi possível carregar os dados.",
+    "source": "fonte: perotto (2025), insper — rais, censo ibge, gtfs e openstreetmap"
+  },
+  "tree": {
+    "groups": {
+      "observed": "observado",
+      "land_use": "uso do solo",
+      "scenarios": "cenários isolados (c.p.)",
+      "zones": "zonas estudadas (contorno)"
+    },
+    "items": {
+      "access": "acessibilidade",
+      "delta": "variação 2013 → 2022",
+      "jobs_solo": "cenário i — empregos",
+      "housing_solo": "cenário ii — população",
+      "network_solo": "cenário iii — transporte",
+      "jobs": "empregos formais",
+      "population": "população"
+    }
+  },
+  "layers": {
+    "access_2013": {
+      "label": "acessibilidade a empregos, 2013",
+      "description": "empregos formais alcançáveis em até 60 min por transporte público e modos ativos, ponderados pela população do hexágono. quantis (k=8) dos hexágonos com acesso > 0."
+    },
+    "access_2022": {
+      "label": "acessibilidade a empregos, 2022",
+      "description": "empregos formais alcançáveis em até 60 min por transporte público e modos ativos, ponderados pela população do hexágono. quantis (k=8) dos hexágonos com acesso > 0."
+    },
+    "delta_pct": {
+      "label": "variação da acessibilidade, 2013 → 2022",
+      "description": "variação percentual do índice de acessibilidade entre 2013 e 2022. escala contínua de −100% a +100%."
+    },
+    "delta_pct_jobs_solo": {
+      "label": "cenário i — empregos: variação vs. 2013",
+      "description": "variação % da acessibilidade em relação a 2013 quando só a distribuição de empregos muda, mantidas população e rede de transporte de 2013. escala contínua de −70% a +70%."
+    },
+    "delta_pct_housing_solo": {
+      "label": "cenário ii — população: variação vs. 2013",
+      "description": "variação % da acessibilidade em relação a 2013 quando só a distribuição da população muda, mantidos empregos e rede de transporte de 2013. escala contínua de −70% a +70%."
+    },
+    "delta_pct_network_solo": {
+      "label": "cenário iii — transporte: variação vs. 2013",
+      "description": "variação % da acessibilidade em relação a 2013 quando só a rede de transporte muda, mantidos empregos e população de 2013. escala contínua de −70% a +70%."
+    },
+    "jobs_2013": {
+      "label": "empregos formais por hexágono, 2013",
+      "description": "vínculos formais da rais 2013 geocodificados no hexágono — os destinos do índice de acessibilidade de 2013. quantis (k=7) de 2013, aplicados aos dois anos."
+    },
+    "jobs_2021": {
+      "label": "empregos formais por hexágono, 2021",
+      "description": "vínculos formais da rais 2021 geocodificados no hexágono — os destinos do índice de acessibilidade de 2022. quantis (k=7) de 2013, aplicados aos dois anos."
+    },
+    "pop_2010": {
+      "label": "população por hexágono, 2010",
+      "description": "população do censo 2010 interpolada da grade estatística do ibge para o hexágono — usada como população de 2013 no índice. quantis (k=7) de 2010, aplicados aos dois anos."
+    },
+    "pop_2022": {
+      "label": "população por hexágono, 2022",
+      "description": "população do censo 2022 interpolada da grade estatística do ibge para o hexágono. quantis (k=7) de 2010, aplicados aos dois anos."
+    }
+  },
+  "detailGroups": {
+    "observed": "observado, 2013 → 2022",
+    "land_use": "uso do solo",
+    "scenario_jobs": "cenário i — empregos",
+    "scenario_housing": "cenário ii — população",
+    "scenario_network": "cenário iii — transporte"
+  },
+  "fields": {
+    "h3": "hexágono h3",
+    "access_2013": "acessibilidade 2013",
+    "access_2022": "acessibilidade 2022",
+    "delta": "variação absoluta",
+    "delta_pct": "variação %",
+    "access_jobs_solo": "acessibilidade no cenário",
+    "delta_pct_jobs_solo": "variação % vs. 2013",
+    "access_housing_solo": "acessibilidade no cenário",
+    "delta_pct_housing_solo": "variação % vs. 2013",
+    "access_network_solo": "acessibilidade no cenário",
+    "delta_pct_network_solo": "variação % vs. 2013",
+    "jobs_2013": "empregos formais 2013",
+    "jobs_2021": "empregos formais 2021",
+    "pop_2010": "população 2010",
+    "pop_2022": "população 2022"
+  },
+  "zones": {
+    "eetu": {
+      "label": "eixos de transporte",
+      "legend": "eixos de transporte ativos (2014–2016)",
+      "description": "eixos de estruturação da transformação urbana (eetu): faixas ao longo de metrô, trem e corredores de ônibus onde o pde de 2014 permite maior adensamento. inclui os eixos do mapa do pde e os ativados por decreto em 2015–2016."
+    },
+    "economic": {
+      "label": "zonas econômicas",
+      "legend": "zonas econômicas estudadas",
+      "description": "áreas voltadas à atividade econômica: zonas de centralidade (zc), de desenvolvimento econômico (zde) e predominantemente industriais (zpi), perímetros de incentivo ao desenvolvimento econômico (pide), parque tecnológico do jaguaré e polo de economia criativa."
+    }
+  }
+}

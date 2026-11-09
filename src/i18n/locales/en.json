@@ -1,0 +1,133 @@
+{
+  "site": {
+    "author": "camilla perotto",
+    "title": "the movements of accessibility: interactions between regulation, land use and mobility in são paulo between 2013 and 2022",
+    "meta": "2025 · insper · master's thesis",
+    "fullText": "full text (portuguese)"
+  },
+  "nav": {
+    "story": "[ / data story ]",
+    "dashboard": "[ / dashboard ]"
+  },
+  "story": {
+    "caption": "2013 → 2022",
+    "placeholder": "[text to be written]",
+    "sections": {
+      "context": "/ context",
+      "results": "/ results",
+      "discussion": "/ discussion"
+    },
+    "figures": {
+      "delta": "fig. 1 — % change in accessibility per hexagon, 2013 → 2022"
+    }
+  },
+  "dashboard": {
+    "fullStory": "[ / full data story ]"
+  },
+  "embed": {
+    "openDashboard": "open full dashboard"
+  },
+  "map": {
+    "layer": "// layers",
+    "info": "// hexagon",
+    "close": "close",
+    "loading": "loading data…",
+    "error": "could not load the data.",
+    "source": "source: perotto (2025), insper — rais, ibge census, gtfs and openstreetmap"
+  },
+  "tree": {
+    "groups": {
+      "observed": "observed",
+      "land_use": "land use",
+      "scenarios": "isolated scenarios (c.p.)",
+      "zones": "study areas (outline)"
+    },
+    "items": {
+      "access": "accessibility",
+      "delta": "change 2013 → 2022",
+      "jobs_solo": "scenario i — jobs",
+      "housing_solo": "scenario ii — population",
+      "network_solo": "scenario iii — transport",
+      "jobs": "formal jobs",
+      "population": "population"
+    }
+  },
+  "layers": {
+    "access_2013": {
+      "label": "job accessibility, 2013",
+      "description": "formal jobs reachable within 60 min by public transport and active modes, weighted by the hexagon's population. quantiles (k=8) of hexagons with access > 0."
+    },
+    "access_2022": {
+      "label": "job accessibility, 2022",
+      "description": "formal jobs reachable within 60 min by public transport and active modes, weighted by the hexagon's population. quantiles (k=8) of hexagons with access > 0."
+    },
+    "delta_pct": {
+      "label": "change in accessibility, 2013 → 2022",
+      "description": "percentage change in the accessibility index between 2013 and 2022. continuous scale from −100% to +100%."
+    },
+    "delta_pct_jobs_solo": {
+      "label": "scenario i — jobs: change vs. 2013",
+      "description": "% change in accessibility relative to 2013 when only the distribution of jobs changes, keeping 2013 population and transport network. continuous scale from −70% to +70%."
+    },
+    "delta_pct_housing_solo": {
+      "label": "scenario ii — population: change vs. 2013",
+      "description": "% change in accessibility relative to 2013 when only the distribution of population changes, keeping 2013 jobs and transport network. continuous scale from −70% to +70%."
+    },
+    "delta_pct_network_solo": {
+      "label": "scenario iii — transport: change vs. 2013",
+      "description": "% change in accessibility relative to 2013 when only the transport network changes, keeping 2013 jobs and population. continuous scale from −70% to +70%."
+    },
+    "jobs_2013": {
+      "label": "formal jobs per hexagon, 2013",
+      "description": "formal jobs from rais 2013 geocoded to the hexagon — the destinations of the 2013 accessibility index. 2013 quantiles (k=7), applied to both years."
+    },
+    "jobs_2021": {
+      "label": "formal jobs per hexagon, 2021",
+      "description": "formal jobs from rais 2021 geocoded to the hexagon — the destinations of the 2022 accessibility index. 2013 quantiles (k=7), applied to both years."
+    },
+    "pop_2010": {
+      "label": "population per hexagon, 2010",
+      "description": "2010 census population interpolated from the ibge statistical grid to the hexagon — used as the 2013 population in the index. 2010 quantiles (k=7), applied to both years."
+    },
+    "pop_2022": {
+      "label": "population per hexagon, 2022",
+      "description": "2022 census population interpolated from the ibge statistical grid to the hexagon. 2010 quantiles (k=7), applied to both years."
+    }
+  },
+  "detailGroups": {
+    "observed": "observed, 2013 → 2022",
+    "land_use": "land use",
+    "scenario_jobs": "scenario i — jobs",
+    "scenario_housing": "scenario ii — population",
+    "scenario_network": "scenario iii — transport"
+  },
+  "fields": {
+    "h3": "h3 hexagon",
+    "access_2013": "accessibility 2013",
+    "access_2022": "accessibility 2022",
+    "delta": "absolute change",
+    "delta_pct": "% change",
+    "access_jobs_solo": "accessibility in scenario",
+    "delta_pct_jobs_solo": "% change vs. 2013",
+    "access_housing_solo": "accessibility in scenario",
+    "delta_pct_housing_solo": "% change vs. 2013",
+    "access_network_solo": "accessibility in scenario",
+    "delta_pct_network_solo": "% change vs. 2013",
+    "jobs_2013": "formal jobs 2013",
+    "jobs_2021": "formal jobs 2021",
+    "pop_2010": "population 2010",
+    "pop_2022": "population 2022"
+  },
+  "zones": {
+    "eetu": {
+      "label": "transport axes",
+      "legend": "active transport axes (2014–2016)",
+      "description": "urban transformation axes (eetu): strips along metro, rail and bus corridors where the 2014 master plan allows higher density. includes the axes on the master plan map and those activated by decree in 2015–2016."
+    },
+    "economic": {
+      "label": "economic zones",
+      "legend": "economic zones studied",
+      "description": "areas aimed at economic activity: centrality zones (zc), economic development zones (zde) and predominantly industrial zones (zpi), economic development incentive perimeters (pide), the jaguaré technology park and the creative economy hub."
+    }
+  }
+}

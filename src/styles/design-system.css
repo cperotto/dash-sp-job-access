@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   design system — estilo suíço / bauhaus
+   --------------------------------------------------------------------------
+   origem: repositório `me` (src/index.css, design-tokens.json, DESIGN_SYSTEM.md).
+   blocos 1–5 espelham o `me` e devem continuar idênticos a ele; o bloco 6
+   (mapas e data-viz) é específico deste projeto e replica as escalas de cor
+   dos mapas da dissertação (repositório pde-sp).
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. tokens
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* estrutura e tipografia */
+  --color-ink: #023047;          /* texto corpo, geometrias base, bordas, fundo do footer */
+  --color-ink-mid: #0d6e8a;      /* títulos secundários, metadados mono, texto atenuado */
+  --color-bg-surface: #ede5d8;   /* fundo unificado (papel creme), texto invertido */
+  --color-bg-card: #e1d6c6;      /* fundo de cards de suporte */
+  --color-border: #b8d8e8;       /* divisores passivos, linhas de grade */
+
+  /* acento e interação */
+  --color-accent: #219ebc;       /* links, hover, foco ativo */
+  --color-accent-light: #8ecae6; /* preenchimento gráfico, suporte visual */
+
+  /* tons quentes */
+  --color-warm: #fb8500;         /* tags de atenção, badges ativos, realce */
+  --color-warm-light: #ffb703;   /* ícones de estado, detalhes, título do footer */
+  --color-warm-text: #c06400;    /* texto/ícones quentes legíveis sobre fundo claro */
+
+  /* tipografia */
+  --font-heading: 'archivo', -apple-system, blinkmacsystemfont, sans-serif;
+  --font-body: 'plus jakarta sans', sans-serif;
+  --tracking-tight: -0.03em;     /* padrão global */
+  --tracking-body: -0.02em;      /* prosa (.font-geom-body) */
+
+  /* bordas */
+  --border-structure: 2px;       /* border-2 border-ink: estrutura */
+  --border-divider: 1px;         /* divisores passivos */
+
+  /* layout */
+  --container-max: 80rem;        /* max-w-7xl */
+  --gutter: 1.5rem;              /* px-6 */
+
+  /* movimento: só confirma estado ou ajuda a leitura, nunca decorativo */
+  --motion-fast: 150ms;          /* .square-btn */
+  --motion-base: 200ms;          /* transições de cor */
+  --motion-reveal: 300ms;        /* reveal de header/footer no scroll */
+}
+
+
+/* --------------------------------------------------------------------------
+   2. regras globais (inegociáveis)
+   1. todo texto em minúsculas
+   2. geometria estritamente ortogonal: sem cantos arredondados, quadrados e
+      nunca círculos (inclusive marcadores de gráficos)
+   -------------------------------------------------------------------------- */
+
+* {
+  text-transform: lowercase !important;
+  border-radius: 0px !important;
+}
+
+body {
+  background-color: var(--color-bg-surface);
+  /* malha de engenharia 20×20 ("papel milimetrado") */
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23e0d5be' stroke-width='0.5'/%3E%3C/svg%3E");
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  letter-spacing: var(--tracking-tight);
+}
+
+
+/* --------------------------------------------------------------------------
+   3. tipografia
+   escala em uso (classes tailwind):
+     h1 página      text-3xl md:text-4xl font-black tracking-tighter leading-none
+     h2 seção       text-2xl font-black tracking-tight          prefixo "/"
+     h3 rótulo      text-base font-bold tracking-widest text-ink-mid   prefixo "//"
+     h3 card        text-lg md:text-xl font-bold font-univers tracking-tight leading-snug
+     corpo          text-sm leading-relaxed font-geom-body
+     metadados      text-xs | text-[10px] | text-[9px] font-mono
+   hierarquia vem de peso, tamanho e tracking — nunca de cor ou caixa alta.
+   -------------------------------------------------------------------------- */
+
+.font-univers {
+  font-family: var(--font-heading);
+}
+
+.font-geom-body {
+  font-family: var(--font-body);
+  letter-spacing: var(--tracking-body);
+}
+
+
+/* --------------------------------------------------------------------------
+   4. componentes reutilizáveis
+   -------------------------------------------------------------------------- */
+
+/* botão/aba ortogonal — rótulo no formato [ / nome ] */
+.square-btn {
+  transition: all var(--motion-fast) ease-in-out;
+}
+
+.square-btn.active {
+  background-color: var(--color-ink) !important;
+  color: var(--color-bg-surface) !important;
+  border-color: var(--color-ink) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. utilitários cromáticos semânticos (usar estes, não a paleta do tailwind)
+   -------------------------------------------------------------------------- */
+
+.border-ink { border-color: var(--color-ink) !important; }
+.border-border { border-color: var(--color-border) !important; }
+
+.text-ink { color: var(--color-ink) !important; }
+.text-ink-mid { color: var(--color-ink-mid) !important; }
+.text-warm-text { color: var(--color-warm-text) !important; }
+.text-warm-light { color: var(--color-warm-light) !important; }
+.text-accent-light { color: var(--color-accent-light) !important; }
+.text-bg-surface { color: var(--color-bg-surface) !important; }
+
+.bg-card { background-color: var(--color-bg-card) !important; }
+.bg-surface { background-color: var(--color-bg-surface) !important; }
+.bg-ink { background-color: var(--color-ink) !important; }
+.bg-ink-mid { background-color: var(--color-ink-mid) !important; }
+.bg-accent { background-color: var(--color-accent) !important; }
+.bg-warm-light { background-color: var(--color-warm-light) !important; }
+.bg-warm { background-color: var(--color-warm) !important; }
+
+
+/* --------------------------------------------------------------------------
+   6. mapas e data-viz (específico deste projeto)
+   escalas replicadas dos mapas da dissertação — pde-sp/02_access/
+   08_access___scenarios.py, 09_decomposingEffects.py, 01_dataPrep/07_eda.py
+   e 03_plots/moran.ipynb. lidas em runtime por src/utils/cssTokens.ts, então
+   este arquivo é a fonte única também para o deck.gl.
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* matplotlib `coolwarm_r`: baixo = vermelho, alto = azul.
+     stops gerados por pipeline/sample_colormaps.py — não editar à mão. */
+
+  /* níveis de acessibilidade: quantis k=8 sobre hexágonos com acesso > 0 */
+  --map-level-0: #b40426;
+  --map-level-1: #e26952;
+  --map-level-2: #f7a889;
+  --map-level-3: #edd1c2;
+  --map-level-4: #c9d7f0;
+  --map-level-5: #9abbff;
+  --map-level-6: #6788ee;
+  --map-level-7: #3b4cc0;
+
+  /* empregos e população por hexágono: quantis k=7 do primeiro ano (01_dataPrep/07_eda.py) */
+  --map-level7-0: #b40426;
+  --map-level7-1: #e7745b;
+  --map-level7-2: #f7b89c;
+  --map-level7-3: #dcdddd;
+  --map-level7-4: #aac7fd;
+  --map-level7-5: #6f92f3;
+  --map-level7-6: #3b4cc0;
+
+  /* variações (perda = vermelho, ganho = azul): contínua de vmin a vmax.
+     domínios usados na dissertação: Δ% real −100/+100; cenários isolados −70/+70 */
+  --map-diverging-0: #b40426;
+  --map-diverging-1: #d65244;
+  --map-diverging-2: #ee8468;
+  --map-diverging-3: #f7ac8e;
+  --map-diverging-4: #f2cbb7;
+  --map-diverging-5: #dcdddd;
+  --map-diverging-6: #c0d4f5;
+  --map-diverging-7: #9ebeff;
+  --map-diverging-8: #7b9ff9;
+  --map-diverging-9: #5977e3;
+  --map-diverging-10: #3b4cc0;
+
+  /* polaridades: sinal do Δ no cenário isolado vs. sinal do Δ observado
+     (classificar_cor em 09_decomposingEffects.py) */
+  --map-polarity-pos-pos: #4151c1;   /* Δ cenário > 0; Δ observado > 0 */
+  --map-polarity-neg-pos: #8badfd;   /* Δ cenário < 0; Δ observado > 0 */
+  --map-polarity-pos-neg: #f7a88a;   /* Δ cenário > 0; Δ observado < 0 */
+  --map-polarity-neg-neg: #c40229;   /* Δ cenário < 0; Δ observado < 0 (pior caso) */
+
+  /* clusters lisa (cores padrão do splot.lisa_cluster) */
+  --map-lisa-hh: #d7191c;
+  --map-lisa-hl: #fdae61;
+  --map-lisa-lh: #abd9e9;
+  --map-lisa-ll: #2c7bb6;
+  --map-lisa-ns: #d3d3d3;        /* matplotlib 'lightgrey' */
+
+  /* sem dado / acesso zero (excluídos dos mapas da dissertação) */
+  --map-nodata: #d3d3d3;
+
+  /* contexto: limite municipal branco a 40% com contorno cinza 0,5px */
+  --map-boundary-fill: #ffffff;
+  --map-boundary-fill-opacity: 0.4;
+  --map-boundary-line: #808080;  /* matplotlib 'gray' */
+  --map-boundary-line-width: 0.5;
+
+  /* zonas estudadas (contornos sobre a camada de dados): só a linha, em cores
+     fora da rampa coolwarm.
+     eetu em azul-escuro, como os eixos pós-pde em 03_plots/instrumentos.ipynb */
+  --map-zone-eetu: #023047;
+  --map-zone-economic: #1b9e77;
+  --map-zone-line-width: 1.5;
+
+  /* interação: segue o design system, sem competir com a rampa */
+  --map-hover-line: var(--color-ink);
+  --map-selected-line: var(--color-warm);
+}
+
+/* card sobre o mapa (título, camadas, legenda, hexágono): papel creme quase opaco,
+   borda estrutural — o mapa continua sendo o componente principal */
+.map-card {
+  background: color-mix(in srgb, var(--color-bg-surface) 94%, transparent);
+  border: var(--border-structure) solid var(--color-ink);
+  padding: 0.75rem 1rem;
+}
+
+/* tooltip do mapa: card ortogonal, metadados mono */
+.map-tooltip {
+  background: var(--color-bg-surface);
+  border: var(--border-structure) solid var(--color-ink);
+  color: var(--color-ink);
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: 0;
+}
+
+/* amostra de legenda: quadrado 2,5×2,5 (nunca círculo) */
+.legend-swatch {
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  flex-shrink: 0;
+}
+
+/* maplibre: atribuição discreta e alinhada à tipografia mono */
+.maplibregl-ctrl-attrib {
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  background: color-mix(in srgb, var(--color-bg-surface) 80%, transparent) !important;
+}
+
+/* páginas de mapa (dashboard, embed): sem scroll vertical em md+.
+   no celular os cards empilham abaixo do mapa e a página precisa rolar */
+@media (min-width: 768px) {
+  html.no-page-scroll,
+  html.no-page-scroll body {
+    overflow: hidden;
+  }
+}
