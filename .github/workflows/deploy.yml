@@ -1,0 +1,49 @@
+# build + deploy no github pages (https://cperotto.github.io/dash-sp-job-access/)
+# dispara a cada push na main deste repositório; também pode ser rodado à mão na aba actions.
+# os dados (public/data) já estão versionados — o pipeline python não roda aqui.
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# um deploy por vez; um push novo cancela o build anterior ainda em andamento
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # typecheck (vue-tsc) + vite build → dist/, com base /dash-sp-job-access/
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
